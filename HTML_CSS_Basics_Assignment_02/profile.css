@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+    color: #333333;
+}
+
+/* Header */
+header{
+    background-color: #1e293b;
+    color: #ffffff;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.header-container h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle{
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #94a3b8;
+}
+
+/* Navigation */
+nav{
+    background-color: #0f172a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+nav a{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover{
+    color: #38bdf8;
+}
+
+/* Layout container */
+.layout-container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* main sections and article */
+main section, main article{
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+h2{
+    color: #1e293b;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 0.5rem;
+
+}
+
+/* about section */
+.profile-pic{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    border: 3px solid #38bdf8;
+}
+
+/* Skills */
+.skills-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.skill-tag{
+    background-color: #e2e8f0;
+    color:#1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Aside */
+.aside-box{
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.aside-box h3{
+    color: #38bdf8;
+    margin-top: 1rem;
+}
+
+.aside-box h4{
+    margin-top: 1rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* footer */
+footer{
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+#contact-link{
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact-link:hover{
+    text-decoration: underline;
+}
