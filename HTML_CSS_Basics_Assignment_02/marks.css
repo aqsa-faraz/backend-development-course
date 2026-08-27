@@ -1,0 +1,53 @@
+body{
+    padding: 20px;
+}
+h3{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.7rem;
+}
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px, 0;
+}
+caption{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    font-size: 1rem;
+}
+.table-style{
+    width: 100%;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    /* border: 2px solid black; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+.table-style thead tr{
+    /* background-color: #009879; */
+    background-color: lightblue;
+}
+
+.table-style th,
+.table-style td{
+    padding: 12px 15px;
+}
+
+.table-style tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-style tbody tr:nth-of-type(odd){
+    background-color: aliceblue;
+}
+
+.tot{
+    background-color: rgb(245, 247, 249);
+    font-weight: bold;
+}

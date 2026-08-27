@@ -1,0 +1,231 @@
+/* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      line-height: 1.5;
+    }
+
+    /* Hero Section*/
+    .hero-container {
+      position: relative;
+      background: linear-gradient(135deg, #4d66ff, #2b44ff);
+      color: #ffffff;
+      padding-bottom: 180px; 
+      overflow: hidden;
+    }
+
+    /* Navbar styling using Flexbox */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 40px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      gap: 10px;
+    }
+    .brand-logo {
+      width: 24px;
+      height: 24px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      opacity: 0.9;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .btn-buy {
+      background-color: #ffffff;
+      color: #2b44ff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+    .btn-buy:hover {
+      background-color: #f0f2ff;
+    }
+
+    /* Main Hero Content styling using Flexbox */
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 800px;
+      margin: 60px auto 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+    .hero-content p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #2b44ff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: background-color 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 60px solid rgba(255, 255, 255, 0.03);
+      pointer-events: none;
+    }
+    .circle-left {
+      width: 400px;
+      height: 400px;
+      left: -150px;
+      bottom: -50px;
+    }
+    .circle-center {
+      width: 500px;
+      height: 500px;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Features Section layout using Flexbox */
+    .features-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      margin-top: -100px; /* Pulls cards upward into the blue hero zone */
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cards-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 40px 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    }
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background-color: #f0f3ff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .card-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #2b44ff;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      color: #333333;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .card p {
+      color: #777777;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Footer Links styling using Flexbox */
+    .features-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+      margin-top: 20px;
+    }
+    .link-explore {
+      color: #2b44ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .link-explore:hover {
+      text-decoration: underline;
+    }
+    .quickstart-label {
+      color: #2b44ff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
