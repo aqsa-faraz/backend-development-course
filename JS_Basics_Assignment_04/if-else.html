@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="if-else.js" defer></script>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            text-align: center;
+            margin: 20px;
+            justify-self: center;
+
+        }
+        th{
+            border: 1px solid #dddddd;
+            background-color: rgb(6, 6, 116);
+            color: #fff;
+            padding: 10px;
+        }
+        td{
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+        tr:nth-child(odd){
+            background-color: #dddddd
+        }
+    </style>
+    <title>Student Grade Calculator</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Grade Table</h1>
+    <table>
+        <tr>
+            <th>Marks</th>
+            <th>Grade</th>
+        </tr>
+        <tr>
+            <td>90-100</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>80-89</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>70-79</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>60-69</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>Below 60</td>
+            <td>F</td>
+        </tr>
+    </table>
+
+    <h3>Marks: <span id="marks"></span></h3>
+    <h3>Grade: <span id="grade"></span></h3>
+</body>
+</html>
