@@ -55,3 +55,14 @@ input[type="number"]{
     /* background-color: #0056b3; */
     transform: scale(0.9);
 }
+
+p{
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
