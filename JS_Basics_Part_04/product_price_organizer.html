@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="product_price_organizer.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+        }
+       .section {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .price-display {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #e74c3c;
+        } 
+    </style>
+    <title>Product Price Organizer</title>
+</head>
+<body>
+    <h1>Product Price Organizer</h1>
+
+    <div class="section">
+        <h3>Original Price List</h3>
+        <p id="original-list" class="price-display">Pending data...</p>
+    </div>
+
+    <div class="section">
+        <h3>Reversed Price List</h3>
+        <p id="reversed-list" class="price-display">Pending data...</p>
+    </div>
+
+    <div class="section">
+        <h3>From Lowest to Highest (Ascending)</h3>
+        <p id="ascending-list" class="price-display">Pending data...</p>
+    </div>
+
+     <div class="section">
+        <h3>From Highest to Lowest (Descending)</h3>
+        <p id="descending-list" class="price-display">Pending data...</p>
+    </div>
+
+    <div class="section">
+        <h3>Random Promotional Ordering</h3>
+        <p id="random-list" class="price-display">Pending data...</p>
+    </div>
+
+</body>
+</html>
