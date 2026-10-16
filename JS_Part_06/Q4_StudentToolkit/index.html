@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Reusable Student Toolkit with Modules</title>
+</head>
+
+<body>
+    <h2>Build a Reusable Student Toolkit with Modules</h2>
+    <p>A school website has become difficult to maintain because all student-related code is written in one file.
+        Separate the
+        reusable student functions from the main page logic.
+    <br>
+    Create these files: <em>index.html</em>, <em>studentTools.js</em>, and <em>main.js</em>.
+</p>
+<ul style="list-style-type: none;">
+    <li>- In <strong>studentTools.js</strong>, create and make available a function that receives a student's first and last name and returns the
+full name.</li>
+    <li>- In the same file, create and make available a function that receives marks from four subjects and returns the total
+marks.</li>
+    <li>- Make one of these functions available as a named export and the other as the file's default export.</li>
+    <li>- In <strong>main.js</strong>, bring both functions in from <strong>studentTools.js</strong> and use them with sample student data.</li>
+    <li>- Display the full name and total marks in the console.</li>
+    <li>- In <strong>index.html</strong>, load <strong>main.js</strong> correctly so the browser recognizes it as a module.</li>
+    <li>- Run the page with a local development server and make sure both imported functions work.</li>
+</ul>
+
+<script type="module" src="main.js"></script>
+</body>
+
+</html>
