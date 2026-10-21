@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing Sequence</title>
+</head>
+
+<body>
+    <h2>Order Processing Sequence</h2>
+    <p>
+        An online food service must prepare an order, pack it, and then notify the customer. Each step takes
+        approximately
+        one second.
+    </p>
+    <ul>
+        <li>Display a message when each step starts and when it finishes.</li>
+        <li>Make sure packing starts only after preparation finishes, and notification happens only after packing
+            finishes.</li>
+        <li>First implement the workflow using nested callbacks to demonstrate how deeply nested asynchronous code
+            can become.</li>
+        <li>Write a second version of the workflow using a cleaner Promise-based approach or async/await.</li>
+        <li>Add a short comment comparing the readability of the two versions.</li>
+    </ul>
+
+    <script src="Q2_OrderProcessing.js"></script>
+</body>
+
+</html>

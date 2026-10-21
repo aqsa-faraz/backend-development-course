@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Student Records in Sequence</title>
+</head>
+<body>
+    <h2>Load Student Records in Sequence</h2>
+    <p>A school portal loads details for three students. Each student's data takes about two seconds to load, and each
+student should be shown before the next student's request begins.</p>
+<ul>
+    <li>Create getStudentData(id) that returns a Promise and resolves with sample student details after a two-second
+delay.</li>
+    <li>Use student IDs 1, 2, and 3.</li>
+    <li>Display a loading message and then display each student's data when it is ready.</li>
+    <li>Load Student 1, then Student 2, then Student 3, in that order, using async/await.</li>
+    <li>Add error handling so a rejected request does not cause an unhandled error.</li>
+    <li>Add a comment explaining why await pauses the current async function but does not freeze the whole
+JavaScript program.</li>
+</ul>
+
+<script src="Q4_AsyncAwait.js"></script>
+</body>
+</html>
