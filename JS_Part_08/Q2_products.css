@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Status messages styling */
+.message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+/* Grid layout for product cards */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Individual card styling */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 10px 0 5px 0;
+}
+
+.card .brand {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.card .price {
+    font-size: 1.2rem;
+    color: #2be141;
+    font-weight: bold;
+}
