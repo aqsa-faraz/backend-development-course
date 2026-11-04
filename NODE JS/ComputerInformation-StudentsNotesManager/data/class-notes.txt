@@ -1,0 +1,4 @@
+1. Node.js allows JavaScript to run on the server side.
+2. The os module provides essential operating system utilities.
+3. The fs module offers both synchronous and asynchronous file APIs.
+4. The path module ensures cross-platform compatibility for file paths.

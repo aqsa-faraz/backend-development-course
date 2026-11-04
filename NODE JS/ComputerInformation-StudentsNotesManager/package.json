@@ -1,0 +1,11 @@
+{
+  "name": "computerinformation-studentsnotesmanager",
+  "version": "1.0.0",
+  "description": "A utility for a computer lab that can display computer information and manage a notes file for a student.",
+  "author": "aqsa",
+  "type": "commonjs",
+  "main": "computer_lab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
