@@ -1,0 +1,12 @@
+{
+  "name": "student-utility",
+  "version": "1.0.0",
+  "description": "A command-line utility to display student's information and marks",
+  "author": "aqsa",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  }
+}
