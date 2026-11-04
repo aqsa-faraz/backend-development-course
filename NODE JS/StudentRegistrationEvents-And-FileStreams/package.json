@@ -1,0 +1,11 @@
+{
+  "name": "studentregistrationevents-and-filestreams",
+  "version": "1.0.0",
+  "description": "",
+  "author": "aqsa",
+  "type": "commonjs",
+  "main": "PartA-Events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
