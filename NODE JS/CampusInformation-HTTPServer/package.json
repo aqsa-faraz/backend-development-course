@@ -1,0 +1,11 @@
+{
+  "name": "campusinformation-httpserver",
+  "version": "1.0.0",
+  "description": "Campus Information HTTP Server",
+  "author": "aqsa",
+  "type": "commonjs",
+  "main": "college_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
