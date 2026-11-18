@@ -49,31 +49,34 @@ function remove(id){
     return true;
 }
 
-// Summary
-function summary(){
-    const pending = tasks.filter(task => task.status.toLowerCase() === "pending");
-    const inprogress = tasks.filter(task => task.status.toLowerCase() === "in-progress");
-    const completed = tasks.filter(task => task.status.toLowerCase() === "completed");
-    return {
-        totalNumberOfTasks: tasks.length,
-        pendingTasks: pending.length,
-        inprogress: inprogress.length,
-        completedTask: completed.length
+// Additional Challenges: Summary, Employee tasks, overdue tasks
+
+function getSummary(){
+    const summary = {
+        totalTasks: tasks.length,
+        pending: 0,
+        "in-progress": 0,
+        completed: 0
     };
+
+    tasks.forEach((task) => {
+        if(summary[task.status.toLowerCase()] != undefined){
+            summary[task.status.toLowerCase()] += 1;
+        }
+    });
+    return summary;
 }
 
-// Employee tasks
 function employeeTasks(emp_name){
     return tasks.filter(task => task.assignedTo.toLowerCase() === emp_name.toLowerCase());
 }
 
-// overdue tasks
 function findOverdue(){
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
     return tasks.filter(task => task.dueDate < today && task.status.toLowerCase() !== "completed");
 }
 
 
 module.exports = {
-    getAllTasks, findTaskById, searchByStatus, searchByPriority, create, replace, update, remove, summary, employeeTasks, findOverdue
+    getAllTasks, findTaskById, searchByStatus, searchByPriority, create, replace, update, remove, getSummary, employeeTasks, findOverdue
 }

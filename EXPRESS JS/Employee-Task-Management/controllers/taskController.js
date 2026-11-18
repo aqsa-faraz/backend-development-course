@@ -3,6 +3,8 @@ const Task = require('../models/taskModel');
 const dayjs = require('dayjs');
 const customParseFormat = require('dayjs/plugin/customParseFormat');
 const fields = ["title", "description", "assignedTo", "priority", "status", "dueDate"];
+const VALID_PRIORITIES = ["low", "medium", "high"];
+const VALID_STATUS = ["pending", "in-progress", "completed"];
 
 dayjs.extend(customParseFormat);
 
@@ -22,9 +24,6 @@ function isValidDate(dateString){
 
 function validateTask(data, partial = false) {
 
-    const validPriorities = ["low", "medium", "high"];
-    const validStatus = ["pending", "in-progress", "completed"];
-
     if (!data || typeof data !== "object" || Array.isArray(data))
         return "JSON object required";
     const keys = Object.keys(data);
@@ -38,13 +37,13 @@ function validateTask(data, partial = false) {
         if (Object.hasOwn(data, name) && (typeof data[name] !== "string" || !data[name].trim()))
             return `${name} must be a non-empty string`;
     }
-    // priority Low / Medium / High
-    if(Object.hasOwn(data, "priority") && !validPriorities.includes(data.priority.trim().toLowerCase()))
+    // priority: Low / Medium / High
+    if(Object.hasOwn(data, "priority") && !VALID_PRIORITIES.includes(data.priority.trim().toLowerCase()))
         return "Invalid priority value";
-    // status Pending / In Progress / Completed
-    if(Object.hasOwn(data, "status") && !validStatus.includes(data.status.trim().toLowerCase()))
+    // status: Pending / In-Progress / Completed
+    if(Object.hasOwn(data, "status") && !VALID_STATUS.includes(data.status.trim().toLowerCase()))
         return "Invalid status value";
-    //due date Deadline in YYYY-MM-DD format
+    //valid date format: YYYY-MM-DD
     if(Object.hasOwn(data, "dueDate") && !isValidDate(data.dueDate))
         return "Invalid date format";
     return null;
@@ -64,29 +63,30 @@ function getTaskById(req, res){
     res.json({success: true, data: task});
 }
 
-// status
 function searchTasksByStatus(req, res){
-    //const status = req.query.status;
     const status = req.params.status;
-    const validStatus = ["pending", "in-progress", "completed"];
-    if(typeof status !== "string" || !status.trim())
-        return res.status(400).json({success: false, message: "Query parameter 'status' is required"});
+    const validStatus = VALID_STATUS.find(s => s.toLowerCase() === status.toLowerCase());
 
-    if(!validStatus.includes(status.trim().toLowerCase()))
-        return res.status(400).json({success: false, message: "Invalid status. Allowed values are pending, in-progress, completed"});
-    res.json({success: true, data: Task.searchByStatus(status.trim())});
+    if(!validStatus){
+        return res.status(400).json({success: false, message: `Invalid status. Allowed values: ${VALID_STATUS}`});
+    }
+
+    const tasks = Task.searchByStatus(validStatus)
+    res.json({success: true, count: tasks.length ,data: tasks});
 }
 
-// priority
 function searchTasksByPriority(req, res){
     const priority = req.params.priority;
-    const validPriorities = ["low", "medium", "high"];
-    if(typeof priority !== "string" || !priority.trim())
-        return res.status(400).json({success: false, message: "Query parameter 'priority' is required"});
 
-    if(!validPriorities.includes(priority.trim().toLowerCase()))
-        return res.status(400).json({success: false, message: "Invalid priority. Allowed values are low, medium, high"});
-    res.json({success: true, data: Task.searchByPriority(priority.trim())});
+    const validPriority = VALID_PRIORITIES.find((p) => p.toLowerCase() === priority.toLowerCase());
+
+    if(!validPriority){
+        return res.status(400).json({success: false, message: `Invalid priority. Allowed values: ${VALID_PRIORITIES.join(",")}`});
+    }
+
+    const tasks = Task.searchByPriority(validPriority);
+    res.json({success: true, count: tasks.length, data: tasks});
+
 }
 
 // create task
@@ -98,7 +98,7 @@ function createTask(req, res){
     res.status(201).json({success: true, message: "Task created successfully", data: task});
 }
 
-// replace task
+// complete task update
 function replaceTask(req, res){
     const id = parseId(req, res);
     if(id === null)
@@ -112,7 +112,7 @@ function replaceTask(req, res){
     res.json({success: true, message: "Task replaced successfully", data: task});
 }
 
-// patch task
+// partial task update
 function patchTask(req, res){
     const id = parseId(req, res);
     if(id === null)
@@ -135,12 +135,11 @@ function deleteTask(req, res){
     res.json({success: true, message: "Task deleted successfully"});
 }
 
-// Summary
+// ADDITIONAL CHALLENGE: taskSummary, employeeTask, overDueTasks
 function taskSummary(req, res){
-    res.json({success: true, data: Task.summary()});
+    res.json({success: true, data: Task.getSummary()});
 }
 
-// EmployeeTasks
 function employeeTask(req, res){
     const employee = req.params.name;
     if(!employee || typeof employee !== "string")
@@ -151,7 +150,6 @@ function employeeTask(req, res){
     res.json({success: true, data: emp_task});
 }
 
-// OverDue Tasks
 function getOverdueTasks(req, res){
     const overDueTasks = Task.findOverdue();
     res.json({success: true, count: overDueTasks.length, data: overDueTasks});
