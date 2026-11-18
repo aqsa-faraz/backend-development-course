@@ -67,6 +67,13 @@ function employeeTasks(emp_name){
     return tasks.filter(task => task.assignedTo.toLowerCase() === emp_name.toLowerCase());
 }
 
+// overdue tasks
+function findOverdue(){
+    const today = new Date().toISOString().split("T")[0];
+    return tasks.filter(task => task.dueDate < today && task.status.toLowerCase() !== "completed");
+}
+
+
 module.exports = {
-    getAllTasks, findTaskById, searchByStatus, searchByPriority, create, replace, update, remove, summary, employeeTasks
+    getAllTasks, findTaskById, searchByStatus, searchByPriority, create, replace, update, remove, summary, employeeTasks, findOverdue
 }

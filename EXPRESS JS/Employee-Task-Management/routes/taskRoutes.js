@@ -5,6 +5,7 @@ const controller = require('../controllers/taskController');
 router.get("/status/:status", controller.searchTasksByStatus);
 router.get("/employee/:name", controller.employeeTask);
 router.get("/summary", controller.taskSummary);
+router.get("/overdue", controller.getOverdueTasks);
 router.get("/priority/:priority", controller.searchTasksByPriority);
 router.get("/", controller.getTasks);
 router.get("/:id", controller.getTaskById);

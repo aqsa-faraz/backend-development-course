@@ -39,7 +39,6 @@ function validateTask(data, partial = false) {
             return `${name} must be a non-empty string`;
     }
     // priority Low / Medium / High
-    
     if(Object.hasOwn(data, "priority") && !validPriorities.includes(data.priority.trim().toLowerCase()))
         return "Invalid priority value";
     // status Pending / In Progress / Completed
@@ -152,6 +151,12 @@ function employeeTask(req, res){
     res.json({success: true, data: emp_task});
 }
 
+// OverDue Tasks
+function getOverdueTasks(req, res){
+    const overDueTasks = Task.findOverdue();
+    res.json({success: true, count: overDueTasks.length, data: overDueTasks});
+}
+
 module.exports = {
-    getTasks, getTaskById, searchTasksByStatus, searchTasksByPriority, createTask, replaceTask, patchTask, deleteTask, taskSummary, employeeTask
+    getTasks, getTaskById, searchTasksByStatus, searchTasksByPriority, createTask, replaceTask, patchTask, deleteTask, taskSummary, employeeTask, getOverdueTasks
 };

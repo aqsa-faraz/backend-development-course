@@ -24,7 +24,7 @@ module.exports = [
     "description": "Create responsive web and social media banner assets for the December promotional sale.",
     "assignedTo": "Sara Raza",
     "priority": "Medium",
-    "status": "Completed",
+    "status": "Pending",
     "dueDate": "2026-11-15"
   },
   {
