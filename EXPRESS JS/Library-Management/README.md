@@ -41,74 +41,46 @@ A RESTful API built with **Node.js**, **Express.js**, and **MVC architecture** f
 
 Base URL: `http://localhost:5000/api/books`
 
-### A. Core CRUD Endpoints
+| Method | Endpoint | Description | Status Codes |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/books` | List all books | `200` |
+| `GET` | `/api/books/search?title=Node` | Search books by title | `200`, `400` |
+| `GET` | `/api/books/available` | List only available books | `200` |
+| `GET` | `/api/books/:id` | Get a single book by ID | `200`, `400`, `404` |
+| `POST` | `/api/books` | Add a new book | `201`, `400` |
+| `PUT` | `/api/books/:id` | Replace all details of a book | `200`, `400`, `404` |
+| `PATCH` | `/api/books/:id` | Partially update a book | `200`, `400`, `404` |
+| `DELETE` | `/api/books/:id` | Delete a book | `200`, `400`, `404` |
 
-#### 1. Create a New Book
-- **Method & URL:** `POST http://localhost:5000/api/books`
-- **Request Body:**
-  ```json
-  {
-    "title": "You Don't Know JS",
-    "author": "Kyle Simpson",
-    "category": "Programming",
-    "publishedYear": 2015,
-    "available": true
-  }
-  ```
-- **Expected Response:** `201 Created` with the newly created book and auto-generated `id`.
+### Sample Payloads for Testing
 
-#### 2. Get All Books
-- **Method & URL:** `GET http://localhost:5000/api/books`
-- **Expected Response:** `200 OK` with a JSON list of all books.
+**1. Create a Book (`POST /api/books`)**
+```json
+{
+  "title": "You Don't Know JS",
+  "author": "Kyle Simpson",
+  "category": "Programming",
+  "publishedYear": 2015,
+  "available": true
+}
+```
 
-#### 3. Get Book by ID
-- **Method & URL:** `GET http://localhost:5000/api/books/1`
-- **Expected Response:** `200 OK` with the matching book object (or `404 Not Found` if the ID does not exist).
+**2. Replace a Book (`PUT /api/books/1`)**
+*(All fields are required)*
+```json
+{
+  "title": "Clean Code (2nd Edition)",
+  "author": "Robert C. Martin",
+  "category": "Software Engineering",
+  "publishedYear": 2021,
+  "available": false
+}
+```
 
-#### 4. Update Complete Book (`PUT`)
-- **Method & URL:** `PUT http://localhost:5000/api/books/1`
-- **Request Body:**
-  ```json
-  {
-    "title": "Clean Code (2nd Edition)",
-    "author": "Robert C. Martin",
-    "category": "Software Engineering",
-    "publishedYear": 2021,
-    "available": false
-  }
-  ```
-- **Expected Response:** `200 OK` with the completely replaced book object.
-
-#### 5. Update Selected Fields (`PATCH`)
-- **Method & URL:** `PATCH http://localhost:5000/api/books/1`
-- **Request Body:**
-  ```json
-  {
-    "available": true
-  }
-  ```
-- **Expected Response:** `200 OK` with only the specified fields updated.
-
-#### 6. Delete Book
-- **Method & URL:** `DELETE http://localhost:5000/api/books/1`
-- **Expected Response:** `200 OK` confirming deletion. Calling `GET /api/books/1` afterward should return `404 Not Found`.
-
----
-
-### B. Search & Filtering Endpoints
-
-#### 7. Search Books by Title
-- **Method & URL:** `GET http://localhost:5000/api/books/search?title=Node`
-- **Expected Response:** `200 OK` returning books whose titles match the query string (or `400 Bad Request` if `title` is missing or empty).
-
-#### 8. List Available Books
-- **Method & URL:** `GET http://localhost:5000/api/books/available`
-- **Expected Response:** `200 OK` returning only books where `available` is `true`.
-
----
-
-### C. Validation & Error Handling Checks
-
-- **Invalid Payload (`400 Bad Request`):** Send a `POST /api/books` request with missing fields, an invalid `publishedYear` (e.g., `999` or `"abc"`), or a non-boolean `available` value. Verify the API returns `400 Bad Request` with a clear error message.
-- **Invalid Book ID (`400 Bad Request`):** Send `GET http://localhost:5000/api/books/abc` and verify the API returns `400 Bad Request` indicating the ID must be a positive integer.
-- **Unknown Route (`404 Not Found`):** Send `GET http://localhost:5000/api/invalid-route` and verify the `notFound` middleware returns `404 Not Found`.
+**3. Update Selected Fields (`PATCH /api/books/1`)**
+*(Provide one or more valid fields)*
+```json
+{
+  "available": true
+}
+```
